@@ -10,6 +10,8 @@ namespace RazorCurrencyConverter.Pages
 {
     public class IndexModel : PageModel
     {
+        public const string Author = "Hakeel Khan";
+
         [BindProperty]
         public string FullName { get; set; }
 

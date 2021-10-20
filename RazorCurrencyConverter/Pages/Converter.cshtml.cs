@@ -7,36 +7,28 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RazorCurrencyConverter.Pages
 {
+    enum CurrencyChoice
+    {
+        GBP,
+
+        EUR
+    }
+
     public class ConverterModel : PageModel
     {
+        [BindProperty]
+        public string Value{ get; set; }
         public void OnGet()
         {
+
         }
 
-        public static class CurrencyConverter
+        public void onPost()
         {
-            static double Convert(double value, CurrencyChoice currency) {
-                double returnAmount = 0;
-                if (currency == CurrencyChoice.GBP)
-                {
-                    returnAmount =  value * 1.18;
-                }
-                if (currency == CurrencyChoice.EUR)
-                {
-                    returnAmount =  value / 1.18;
-                }
-
-                return returnAmount;
-            }
-
+            decimal amount = Convert.ToDecimal(Value);
+            amount = amount * 1.18m;
+            ViewData["Message"] = $"amount in Euros is = {amount}";
         }
 
-
-        enum CurrencyChoice
-        {
-            GBP,
-
-            EUR
-        }
     }
 }

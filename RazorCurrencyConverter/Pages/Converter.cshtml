@@ -1,8 +1,23 @@
 ﻿@page
 @model RazorCurrencyConverter.Pages.ConverterModel
-@{      ViewData["Title"] = "Currency Converter";
+@{ ViewData["Title"] = "Currency Converter";
 }
 
 <h1>@ViewData["Title"]</h1>
+<h2>By Hakeel Khan</h2>
 
-
+<p>Please enter the amount in GBP so you can convert to EUR</p>
+<form method="post" class="mx-auto" style="width:200px">
+    <p class="col-sm-2">
+        <label>Amount</label>
+        <input type="text" asp-for="Value" required="true" placeholder="100.00" />
+    </p>
+    <p class="col-sm-2">
+        <button type="submit" class="btn btn-primary">
+            Calculate
+        </button>
+    </p>
+    <p class="col-sm-2">
+        @ViewData["Message"]
+    </p>
+</form>
