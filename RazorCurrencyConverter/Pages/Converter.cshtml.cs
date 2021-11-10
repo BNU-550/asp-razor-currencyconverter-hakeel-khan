@@ -23,7 +23,7 @@ namespace RazorCurrencyConverter.Pages
 
         }
 
-        public void onPost()
+        public void OnPost()
         {
             decimal amount = Convert.ToDecimal(Value);
             amount = amount * 1.18m;
